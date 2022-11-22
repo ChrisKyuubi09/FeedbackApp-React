@@ -1,6 +1,4 @@
 import FeedbackItem from './FeedbackItem'
-import { FiSun } from 'react-icons/fi'
-import {useState} from 'react'
 import React  from 'react'
 import {motion,AnimatePresence} from 'framer-motion'
 import {useContext} from 'react'
@@ -11,14 +9,14 @@ function FeedbackList( ) {
 
   const {feedback,isLoading} = useContext(FeedbackContext)
 
-  const [lights,setLights] = useState(true)
+  // const [lights,setLights] = useState(false)
 
-  const switchLights = () => {
-    setLights((prevState) => {
-      console.log(prevState)
-      return !prevState
-    })
-}
+  // const switchLights = () => {
+  //   setLights((prevState) => {
+  //     console.log(prevState)
+  //     return !prevState
+  //   })
+  // }
 
   console.log(feedback)
 
@@ -36,9 +34,9 @@ function FeedbackList( ) {
   
   return isLoading ? <Spinner/> : 
   <>
-    <button className='lightSwitch' onClick = {switchLights}>
+    {/* <button className='lightSwitch' onClick = {switchLights}>
       <FiSun color='white'></FiSun>
-    </button>
+    </button> */}
 
     <div className='feedback-list'>
       <AnimatePresence>
@@ -48,7 +46,7 @@ function FeedbackList( ) {
               initial={{opacity: 0}}
               animate={{opacity: 1}}
               exit={{opacity: 0}}>
-                <FeedbackItem key = {comment.id} commentObject = {comment} propagateLights = {lights}/>
+                <FeedbackItem key = {comment.id} commentObject = {comment} />
           </motion.div>
           
         ))}

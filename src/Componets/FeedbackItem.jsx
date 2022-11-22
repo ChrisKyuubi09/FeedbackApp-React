@@ -1,16 +1,15 @@
-import Button from 'react-bootstrap/Button'
 import Card from './shared/Card'
 import {FaTimes,FaEdit} from 'react-icons/fa'
 import React  from 'react'
 import {useContext} from 'react'
 import FeedbackContext from '../Context/FeedbackContext'
 
-function FeedbackItem({ commentObject,propagateLights }) {
+function FeedbackItem({ commentObject }) {
 
-  const {deleteFeedback,editFeedback} = useContext(FeedbackContext)
+  const {deleteFeedback,editFeedback,dark} = useContext(FeedbackContext)
 
   return (
-    <Card reverse = {propagateLights}>
+    <Card reverse = {dark}>
         <div className="num-display">{ commentObject.rating }</div>
         <button onClick={() => deleteFeedback(commentObject.id) } className="close">
           <FaTimes color='purple'></FaTimes>
@@ -19,7 +18,7 @@ function FeedbackItem({ commentObject,propagateLights }) {
           <FaEdit color='blue' />
         </button>
         <div className="text-display"> { commentObject.text } </div>
-        <Button>Change Rating</Button>
+        {/* <Button>Change Rating</Button> */}
     </Card>
   )
 }

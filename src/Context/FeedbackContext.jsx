@@ -13,6 +13,15 @@ export const FeedbackProvider = ({ children }) => {
         edit: false
     })
 
+    //For the light mode
+    const [dark,setDark] = useState(false)
+    const setDarkModeOn = () => {
+        setDark((prevState) => {
+            //console.log(prevState)
+            return !prevState
+        })
+    }
+
     useEffect(() => {
         fetchFeedback()
     } 
@@ -81,8 +90,10 @@ export const FeedbackProvider = ({ children }) => {
         addFeedback,
         editFeedback,
         updateFeedback,
+        setDarkModeOn,
         isLoading,
-        feedbackEdit
+        feedbackEdit,
+        dark
     }}>
         {children}
     </FeedbackContext.Provider>

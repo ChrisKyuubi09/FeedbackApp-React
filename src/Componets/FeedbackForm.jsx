@@ -6,9 +6,10 @@ import React  from 'react'
 import {useContext} from 'react'
 import FeedbackContext from "../Context/FeedbackContext"
 
+
 function FeedbackForm() {
 
-    const {addFeedback,feedbackEdit,updateFeedback} = useContext(FeedbackContext)
+    const {addFeedback,feedbackEdit,updateFeedback,dark} = useContext(FeedbackContext)
 
     useEffect(() => {
       if (feedbackEdit.edit === true){
@@ -60,7 +61,7 @@ function FeedbackForm() {
     }
     
   return (
-    <Card>
+    <Card reverse={dark}>
         <form onSubmit={handleSubmit}>
             <h2>How would you rate your service with us?</h2>
              
